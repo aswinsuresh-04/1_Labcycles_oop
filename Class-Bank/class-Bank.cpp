@@ -5,9 +5,8 @@ using namespace std;
 // Class for bank account
 class BankAccount {
 private:
-    string cust_name;
+    string cust_name,acc_type;
     int acc_no;
-    string acc_type;
     float balance;
 
 public:
