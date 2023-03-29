@@ -63,7 +63,7 @@ int main(){
     int ch = 0; // Initialize choice to 0
     BankAccount customer;
 	
-    while(ch!=6){
+    while(true){
         cout<<"\n\n1. Open an account. \n2. Deposit. \n3. Withdraw. \n4. Check Balance. \n5. Account Statement. \n6. Exit."<<endl<<endl;
 		
         cout<<"Enter choice: ";
