@@ -45,7 +45,7 @@ int main() {
 	int choice,ans;
 do
 {
-		cout << "\n\tABC Departmental Store "
+		cout << "\n\tDepartmental Store "
 			<< "\n1. Add an item \n2. Buy an item "
 			<< "\n3. Delete an item \n4. Display Stock "
 			<< "\n5. Quit"
@@ -80,7 +80,7 @@ do
 		float sum = 0;
 		int answer,q,code;
 		do{
-			cout << "Enter the itemcode which you want to buy : ";
+			cout << "Enter the itemcode you want to buy : ";
 			cin >> code;
 			for (int j = 0; j < cont; j++) {
 				if(code==list[j].getcode()) {
@@ -138,12 +138,12 @@ do
 		 break;
 		}
 		else{
-		cout << "Error 404! \tNot found "<<endl;
+		cout << "Error!!!"<<endl;
 		}
 		cout << "\nDo you want to continue ?(1/0) ";
 		cin >> ans;
 
 	} while (ans);
-	cout << "Thank you  see again";
+	cout << "Thank you";
 	return 0;
 }
