@@ -26,11 +26,22 @@ complex add(complex c1, complex c2) {
 }
 
 int main() {
-    complex c1(2.5, 3.7), c2(1.6, 4.2), c3;
+    float r, i;
+    cout << "Enter the real and imaginary parts of complex number 1: ";
+    cin >> r >> i;
+    complex c1(r, i);
+
+    cout << "Enter the real and imaginary parts of complex number 2: ";
+    cin >> r >> i;
+    complex c2(r, i);
+
+    cout << "The two complex numbers are:\n";
     c1.display();
     c2.display();
-    c3 = add(c1, c2);
-    cout<<"Answer is: ";
+
+    complex c3 = add(c1, c2);
+
+    cout << "The sum of the two complex numbers is:\n";
     c3.display();
     return 0;
 }
