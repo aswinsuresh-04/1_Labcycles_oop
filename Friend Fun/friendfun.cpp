@@ -1,6 +1,6 @@
 #include <iostream>
 
-class class_2; // Forward declaration of class_2
+class class_2; 
 
 class class_1 {
 private:
