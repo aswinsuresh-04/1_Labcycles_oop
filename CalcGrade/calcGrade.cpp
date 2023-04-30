@@ -1,55 +1,105 @@
 #include <iostream>
 using namespace std;
 
-float area(float length, float width) {
-    return length * width;
-}
+const int MAX_STUDENTS = 100;
 
-float area_square(float side) {
-    return side * side;
-}
+class Student
+{
+  private:
+    int rollNo;
+    string name;
+    int physics;
+    int chemistry;
+    int maths;
+    int totalMarks;
+    char grade;
+    float average;
+    char status;
 
-float area_circle(float radius) {
-    return 3.14 * radius * radius;
-}
+  public:
+    void input();
+    void calculateGrade();
+    void display() const;
+};
 
-float area_triangle(float base, float height, char type) {
-    if (type == 'e') { 
-        return 0.433 * base * base;
-    } else {
-        return 0.5 * base * height;
+void Student::calculateGrade()
+{
+    totalMarks = physics + maths + chemistry;
+    average = totalMarks / 3.0;
+
+    if (average >= 95)
+    {
+        grade = 'A';
+        status = 'P';
+    }
+    else if (average >= 70)
+    {
+        grade = 'B';
+        status = 'P';
+    }
+    else if (average >= 50)
+    {
+        grade = 'C';
+        status = 'P';
+    }
+    else
+    {
+        grade = 'D';
+        status = 'F';
     }
 }
 
-float area_trapezoid(float base1, float base2, float height) {
-    return 0.5 * (base1 + base2) * height;
+void Student::input()
+{
+    cout << "Enter name of the student: ";
+    cin >> name;
+    cout << "Enter roll no of the student: ";
+    cin >> rollNo;
+    cout << "Enter marks for physics out of 100: ";
+    cin >> physics;
+    cout << "Enter marks for chemistry out of 100: ";
+    cin >> chemistry;
+    cout << "Enter marks for maths out of 100: ";
+    cin >> maths;
 }
 
-int main() {
-    float length, width, side, radius, base1, base2, height;
-    char type;
+void Student::display() const
+{
+    cout << "Name: " << name << endl;
+    cout << "Roll no: " << rollNo << endl;
+    cout << "Marks for Physics out of 100: " << physics << endl;
+    cout << "Marks for Chemistry out of 100: " << chemistry << endl;
+    cout << "Marks for Maths out of 100: " << maths << endl;
+    cout << "Total marks out of 300: " << totalMarks << endl;
+    cout << "Total percentage: " << average << "%" << endl;
+    cout << "Grade: " << grade << endl;
+    cout << "Status: " << status << endl;
+}
 
-    cout << "Enter length and width of the rectangle: ";
-    cin >> length >> width;
-    cout << "Area of the rectangle: " << area(length, width) << endl;
+int main()
+{
+    int n;
+    cout << "Enter number of students whose details should be taken: ";
+    cin >> n;
+    Student students[MAX_STUDENTS];
 
-    cout << "Enter the side of the square: ";
-    cin >> side;
-    cout << "Area of the square: " << area_square(side) << endl;
+    cout << "----------------------------------------\n";
+    cout << "Enter student details\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Enter details of student " << i + 1 << ":" << endl;
+        students[i].input();
+        cout << endl;
+    }
 
-    cout << "Enter the radius of the circle: ";
-    cin >> radius;
-    cout << "Area of the circle: " << area_circle(radius) << endl;
-
-    cout << "Enter the base and height of the triangle: ";
-    cin >> base1 >> height;
-    cout << "Enter 'e' if the triangle is equilateral or 'i' if it is isosceles: ";
-    cin >> type;
-    cout << "Area of the triangle: " << area_triangle(base1, height, type) << endl;
-
-    cout << "Enter the base1, base2, and height of the trapezoid: ";
-    cin >> base1 >> base2 >> height;
-    cout << "Area of the trapezoid: " << area_trapezoid(base1, base2, height) << endl;
+    cout << "----------------------------------------\n";
+    cout << "Display student details\n";
+    for (int i = 0; i < n; i++)
+    {
+        cout << "Details of student " << i + 1 << ":" << endl;
+        students[i].display();
+        cout << endl;
+    }
 
     return 0;
 }
