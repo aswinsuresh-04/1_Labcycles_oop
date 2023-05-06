@@ -1,60 +1,57 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class comp{
-    private:
-        int real,imag;
-    public:
-        comp(){
-            real=0;
-            imag=0;
-        }
-        comp(int a){
-            real=a;
-            imag=a;
-        }
-        comp(int a,int b){
-            real=a;
-            imag=b;
-        }
-        void add(comp a, comp b){
-            real = a.real+b.real;
-            imag = a.imag+b.imag;
-        }
-        void display(){
-            cout<<real<<"+"<<imag<<"i";
-        }
+class comp {
+private:
+    int real, imag;
+public:
+    comp() {
+        real = 0;
+        imag = 0;
+    }
+    comp(int a) {
+        real = a;
+        imag = a;
+    }
+    comp(int a, int b) {
+        real = a;
+        imag = b;
+    }
+    void add(comp& a, comp& b) {
+        real = a.real + b.real;
+        imag = a.imag + b.imag;
+    }
+    void display() {
+        cout << real << " + " << imag << "i\n";
+    }
 };
 
-void addComplexNumbers(){
-    int real,imag;
+void addComplexNumbers() {
+    int real, imag;
 
-    cout<<"Enter a value for real and imaginary parts of complex number: ";
-    cin>>real;
+    cout << "Enter the real and imaginary parts of the first complex number: ";
+    cin >> real;
     comp a(real);
-    cout<<"The first complex number is: ";
+    cout << "The first complex number is: ";
     a.display();
-    cout<<"\n\n\n";
+    cout << endl;
 
-    cout<<"Enter 2 values for real and imaginary parts of complex number: "<<endl;
-    cin>>real>>imag;
-    comp b(real,imag);
-    cout<<"The second complex number is: ";
+    cout << "Enter the real and imaginary parts of the second complex number: ";
+    cin >> real >> imag;
+    comp b(real, imag);
+    cout << "The second complex number is: ";
     b.display();
-    cout<<"\n\n\n";
+    cout << endl;
 
     comp c;
-    cout<<"Third complex number is: ";
+    cout << "The result of adding the two complex numbers is: ";
+    c.add(a, b);
     c.display();
-    cout<<"\n\n\n";
-    cout<<"The resultant complex number of the given 2 complex numbers is: ";
-    c.add(a,b);
-    c.display();
-    cout<<"\n\n\n";
+    cout << endl;
 }
 
-int main(){
-    cout<<"Addition of Complex Numbers\n\n\n";
+int main() {
+    cout << "Addition of Complex Numbers\n\n";
     addComplexNumbers();
     return 0;
 }
